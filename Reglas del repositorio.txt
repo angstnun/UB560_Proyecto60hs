@@ -1,0 +1,16 @@
+Este es el repositorio del proyecto, aca van a subir todos el codigo del software.
+
+Como subir una actualizacion del repositorio:
+
+1 - Crean lo que sea (archivos, carpetas, imagenes, etc.).
+2 - Luego le dan boton derecho, Tortoise SVN, Add.
+3 - Realizan las modificaciones que quiera.
+4 - Luego en un espacio en blanco, boton derecho, COMMIT (o algo parecido).
+
+Reglas para subir actualizaciones(commit):
+
+1 - TIENEN QUE ESCRIBIR UN MENSAJE DE LO QUE ESTAN SUBIENDO.
+1.1 - Si agregar algun contenido nuevo, el mensaje tiene que decir lo siguiente: "+ Se agrego ........."
+1.2 - Si modificaron o eliminaron algo, el mensaje tiene que decir lo siguiente: "- Se modifico/elimino ........."
+1.3 - Si arreglaron algun bug, el mensaje tiene que decir lo siguiente: "* Se corrigio bug ........."
+1.4 - Si realizaron un cambio importante que puede traer a modificaciones grosas o que cosas dejen de funcionar, el mensaje tiene que decir lo siguiente: "! Se modifico ........."

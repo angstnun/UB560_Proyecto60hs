@@ -27,7 +27,11 @@ body{ background: url(../../img/body-bg.png); color:#838383; font: 13px/1.7em 'O
 
 .content {
 	padding: 16px 28px 23px;
-} 
+}
+
+#usuarios{
+	text-align: center;
+}
 
 .login-fields {
 	

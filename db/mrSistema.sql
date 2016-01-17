@@ -9,8 +9,7 @@ CREATE TABLE usuario
 (
 	usuario_id INT UNSIGNED AUTO_INCREMENT,
 	perfil_id INT UNSIGNED NOT NULL,
-	nombre VARCHAR(25) NOT NULL,
-	apellido VARCHAR(25) NOT NULL,
+	nombrePila VARCHAR(64) NOT NULL,
 	usuario VARCHAR(25) NOT NULL,
 	contrasena VARCHAR(32) NOT NULL,
     PRIMARY KEY(usuario_id),
@@ -21,8 +20,7 @@ CREATE TABLE turno
 (
 	turno_id INT UNSIGNED AUTO_INCREMENT,
 	usuario_id INT UNSIGNED,
-	nombreCliente VARCHAR(25) NOT NULL,
-	apellidoCliente VARCHAR(25) NOT NULL,
+	nombrePilaCliente VARCHAR(64) NOT NULL,
 	emailCliente VARCHAR(254) NOT NULL,
 	horaIngreso DATETIME NOT NULL,
 	horaAtencion DATETIME,

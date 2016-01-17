@@ -1,2 +1,2 @@
 INSERT INTO perfil(nombre) VALUES('admin'),('asesor'), ('jefe'), ('cliente');
-INSERT INTO usuario(perfil_id, nombre, apellido, usuario, contrasena) VALUES(1, '', '', 'admin', 'toor');
+INSERT INTO usuario(perfil_id, nombrePila, usuario, contrasena) VALUES(1, 'Pity Alvarez', 'admin', '0325f1f79b7e17d57132300ef4d31fe3');

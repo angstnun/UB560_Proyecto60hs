@@ -31,7 +31,7 @@
             <ul class="dropdown-menu">
               <li><a href="javascript:;">Opciones</a></li>
               <li><a href="javascript:;">Ayuda</a></li>
-			  <li><a href="javascript:;">Logout</a></li>
+			  <li><a href="fnct/logout.php">Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -51,7 +51,7 @@
       <?php
       if($usuario->GetPerfilId() == 3)
       {
-        echo "<input value='Descargar a CSV' type='button' onclick='window.location='utils/convertirAExcel.php''>";
+        echo "<input value='Descargar a CSV' type='button' id='botonExcel'>";
       }
       ?>
 		</div>
@@ -71,7 +71,6 @@
           $vistaTabla .= $tabla->Show("v_mostrarturnos");
         break;
       }
-      $vistaTabla .= "</tbody>" . "</table>";
       if($usuario->GetPerfilId() == 3)
       {
         $_SESSION['tablaOperaciones'] = $vistaTabla;
@@ -82,9 +81,8 @@
     <?php 
     if($usuario->GetPerfilId() == 2)
     {
-      $botonSiguienteTurno = "<input value='Siguiente turno' type='button' onclick='window.location='''>";
+      echo "<input value='Siguiente turno' type='button' id='botonSiguienteTurno'>";
     }
-    echo $botonSiguienteTurno;
     ?>
 		<!-- /widget-content --> 
 	  </div>
@@ -111,5 +109,10 @@
 <script src="js/jquery-1.7.2.min.js"></script> 
 <script src="js/bootstrap.js"></script>
 <script src="js/base.js"></script>
+<script>
+$("#botonExcel").click(function() {
+    window.location.replace("http://stackoverflow.com");
+});
+</script>
 </body>
 </html>

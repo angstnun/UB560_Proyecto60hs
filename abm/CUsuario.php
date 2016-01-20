@@ -7,6 +7,7 @@ class CUsuario extends CSerializable
 	private $password;
 	private $nombrePila = "";
 	private $perfilId;
+	private $usuarioId;
 
 	public function __construct($nombreUsuario, $password)
 	{
@@ -65,6 +66,11 @@ class CUsuario extends CSerializable
 	public function GetColPerfil()
 	{
 		return str_replace(" ", "", explode(",", parent::GetColumnas())[1]);	
+	}
+
+	public function GetColID()
+	{
+		return str_replace(" ", "", explode(",", parent::GetColumnas())[0]);	
 	}
 
 	public function SetNombrePila($nombrePila)

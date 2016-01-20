@@ -15,7 +15,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
     
 <link href="css/style.css" rel="stylesheet" type="text/css">
-<link href="css/pages/signin.css" rel="stylesheet" type="text/css">
+<link href="css/pages/panelIngresoCliente.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -45,48 +45,55 @@
 		
 	</div> <!-- /navbar-inner -->
 	
-</div> <!-- /navbar -->
+	</div> <!-- /navbar -->
 
+	<div id='pantallaPrincipal'>
+		<div class='contenedor'>
+			<h1>BIENVENIDO AL SISTEMA UB</h1>
+		</div>
+		<div class='contenedor'>
+			<button id='botonIngresoCliente' class="button btn btn-success btn-large">Ingresar</button>
+		</div>
+	</div>
 
-
-<div class="account-container">
+<div id='panelIngresoCliente' class="account-container">
 	
 	<div class="content clearfix">
 		
-		<form name="ingresar" action="fnct/CIngresar.php" method="post" enctype="multipart/form-data">
+		<form name="ingresar" action="#" method="post" enctype="multipart/form-data">
 		
-			<h1>Login</h1>		
+			<h1>INGRESO CLIENTES</h1>		
 			
 			<div class="login-fields">
-				
+
 				<div class="field">
-					<label for="username">Usuario</label>
-					<input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
+					<label for="nombrePila">Nombre completo</label>
+					<input type="text" id="nombrePila" name="nombrePila" value="" placeholder="Nombre completo" class="login username-field campo" />
 				</div> <!-- /field -->
 				
 				<div class="field">
-					<label for="password">Contraseña:</label>
-					<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
-				</div> <!-- /password -->
-				
+					<label for="username">E-Mail</label>
+					<input type="email" id="eMailCliente" name="eMailCliente" value="" placeholder="E-Mail" class="login username-field campo" />
+				</div> <!-- /field -->
+
 			</div> <!-- /login-fields -->
 			
 			<div class="login-actions">
 									
-				<button class="button btn btn-success btn-large">Sign In</button>
+				<button id='botonAceptarCliente' class="button btn btn-success btn-large">Aceptar</button>
+
+				<button id='botonCancelarCliente' class="button btn btn-success btn-large">Cancelar</button>
 				
 			</div> <!-- .actions -->
 			
 		</form>
-		<div id="usuarios"><p>Usuario: admin | Contraseña: toor</p></div>
 	</div> <!-- /content -->
 
 </div> <!-- /account-container -->
 
-
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/bootstrap.js"></script>
-
+<script src="js/panelIngresoCliente.js"></script>
 <script src="js/signin.js"></script>
 
 </body>

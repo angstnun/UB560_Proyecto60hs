@@ -27,10 +27,15 @@ class CVistaTabla
 		$str .= "<table id='tablaTurnos' class='table table-striped table-bordered'>" . "<thead>" . "<tr>";
 		foreach($cabecera as $key => $value)
 		{
-          $str .= "<th>" . $key . "&nbsp;&nbsp;<a href='sistema.php?i=asc'><img src='img/arriba.png'></a>&nbsp;&nbsp;<a href='sistema.php?i=desc'><img src='img/abajo.png'></a></th>";
+          $str .= "<th>" . $key . "&nbsp;&nbsp;<a href='sistema.php?" . $key . "=asc'><img src='img/arriba.png'></a>&nbsp;&nbsp;<a href='sistema.php?" . $key . "=desc'><img src='img/abajo.png'></a></th>";
 		}
-		$str .= "</tr>" . "</thead>" . "<tbody>";
-        $str .= "<tr>";
+		$str .= "</tr>" . "</thead>";
+		$str .= "<tbody>" . "<tr>";
+		foreach($cabecera as $val)
+		{
+			$str .= "<td>" . $val . "</td>";
+		}
+		$str .= "</tr>";
         return $str;
 	}
 
@@ -39,7 +44,8 @@ class CVistaTabla
 		$stringRetorno = null;
 		$ctrlSer = new CControladorSerializable("sistemaub");
 		$this->ComprobarFiltros();
-		$resultado = $ctrlSer->ConsultaPersonalizada("SELECT * FROM " . $tabla  . "$this->filtro $this->orden $this->campo $this->forma" . $args . ";");
+		echo "SELECT * FROM " . $tabla . " " . $this->filtro . " " . $this->orden . " " . $this->campo . " " . $this->forma . " " . $args . ";";
+		$resultado = $ctrlSer->ConsultaPersonalizada("SELECT * FROM " . $tabla . " " . $args . $this->filtro . " " . $this->orden . " " . $this->campo . " " . $this->forma . ";");
 		$stringRetorno = $this->GenerarCabeceraTabla($resultado->fetch_array(MYSQLI_ASSOC));
         while ($row = $resultado->fetch_array(MYSQLI_ASSOC))
         {
@@ -49,6 +55,7 @@ class CVistaTabla
           }
           $stringRetorno .= "</tr>";
         }
+        $stringRetorno .= "</tbody>" . "</table>";
         return $stringRetorno;
     }
 
@@ -56,35 +63,16 @@ class CVistaTabla
 	{
 		if(!empty($_GET)) 
 		{
-
-			if (isset($_GET['e']))
-			{ // si existe "e" entonces defino las variables "campo" y "orden"
-				$this->hayOrden = true;
-				$this->campo = "edad ";
-				$this->forma = $_GET['e'];
-			}
-			if (isset($_GET['n']))
+			foreach($_GET as $key => $value)
 			{
 				$this->hayOrden = true;
-				$this->campo = "nombre ";
-				$this->forma = $_GET['n'];
-			}
-			if (isset($_GET['a']))
-			{
-				$this->hayOrden = true;
-				$this->campo = "apellido ";
-				$this->forma = $_GET['a'];
-			}
-			if (isset($_GET['l']))
-			{
-				$this->hayOrden = true;
-				$this->campo = "localidad ";
-				$this->forma = $_GET['l'];
+				$this->campo = $key . " ";
+				$this->forma = $value;
 			}
 			
-			if($hayOrden)
+			if($this->hayOrden)
 			{
-				$orden = "ORDER BY "; // declaro la variable "orden" para generar el orden de la consulta
+				$this->orden = "ORDER BY "; // declaro la variable "orden" para generar el orden de la consulta
 			}
 		  
 			//Procedimiento para realizar la consulta filtrada de la tabla 'personas'.
@@ -113,7 +101,7 @@ class CVistaTabla
 				$this->arrayCondiciones[] = CCriterioBusquedaTexto::ConOperacion("localidad", "LIKE", "%" . $_GET['localidad'] . "%");
 			}
 			
-			if($hayFiltro) //Aca se genera la magia de los filtros.
+			if($this->hayFiltro) //Aca se genera la magia de los filtros.
 			{
 				$condicion = new CCriterioBusqueda($arrayCondiciones);
 				$condicion->SetOperacion("OR");

@@ -24,7 +24,7 @@ class CConexionABM extends CConexionSQL
     $retorno =  mysqli_query(parent::GetConexion(), "INSERT INTO " . $serializable->GetTabla() . "(" . $serializable->GetColumnasAlta() . ") VALUES (" . $criterio->GetTextoCondicion() .");");
     $this->Desconectar();
     // return $retorno;
-    return "INSERT INTO " . $serializable->GetTabla() . "(" . $serializable->GetColumnasAlta() . ") VALUES (" . $criterio->GetTextoCondicion() .");";
+    return $retorno;
   }
 
   public function BajaSerializable($db, $serializable, $criterio)
@@ -35,7 +35,7 @@ class CConexionABM extends CConexionSQL
     return $retorno;
   }
 
-  public function ModificarSerializable($db, $serializable)
+  public function ModificarSerializable($db, $serializable, $valores, $criterio)
   {
     $this->Conectar($db);
     $retorno = mysqli_query("UPDATE " . $serializable->GetTabla() . " SET " . $valores->GetTextoCondicion() . " WHERE " . $criterioModificacion->GetTextoCondicion() . ";");

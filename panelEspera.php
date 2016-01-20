@@ -47,6 +47,15 @@
 <div class="panelfin">
 </div>
 <div class="panelprincipal">
+	<?php
+      $botonSiguienteTurno = NULL;
+      $vistaTabla = NULL;
+      include("abm/CVistaTabla.php");
+      $tabla =  new CVistaTabla();
+      $vistaTabla .= $tabla->Show("v_mostrarcolaturnos");
+      $vistaTabla .= "</tbody>" . "</table>";
+      echo $vistaTabla;
+      ?>
 </div>
 </div> <!-- /account-container -->
 <script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tCNkkE1EEnncMBIKNfzDYiJCcUaKT4SlbdEdEZCIakD5G535G"></script>

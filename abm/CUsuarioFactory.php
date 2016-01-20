@@ -12,6 +12,7 @@ class CUsuarioFactory
 	{
 		$temp = new CUsuario("", "");
 		$temp = CUsuario::ConNombrePila($resultadoSQL[$temp->GetColUsuario()], $resultadoSQL[$temp->GetColPassword()], $resultadoSQL[$temp->GetColNombrePila()]);
+		$temp->SetId($resultadoSQL[$temp->GetColId()]);
 		$temp->SetPerfilId($resultadoSQL[$temp->GetColPerfil()]);
 		return $temp;
 	}

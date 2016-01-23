@@ -1,5 +1,5 @@
 <?php
-include("CConexionABM.php");
+include_once("CConexionABM.php");
 
 class CControladorSerializable
 {

@@ -1,5 +1,5 @@
 <?php 
-include ("conexion.php");
+include_once("conexion.php");
 
 $idPersona =$_POST['idPersona'];
 $nombre  =$_POST['nombre'];

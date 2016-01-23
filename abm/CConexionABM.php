@@ -1,5 +1,5 @@
 <?php
-include ("CConexionSQL.php");
+include_once("CConexionSQL.php");
 
 class CConexionABM extends CConexionSQL
 {
@@ -23,8 +23,8 @@ class CConexionABM extends CConexionSQL
     $this->Conectar($db);
     $retorno =  mysqli_query(parent::GetConexion(), "INSERT INTO " . $serializable->GetTabla() . "(" . $serializable->GetColumnasAlta() . ") VALUES (" . $criterio->GetTextoCondicion() .");");
     $this->Desconectar();
-    // return $retorno;
     return $retorno;
+    // return "INSERT INTO " . $serializable->GetTabla() . "(" . $serializable->GetColumnasAlta() . ") VALUES (" . $criterio->GetTextoCondicion() .");";
   }
 
   public function BajaSerializable($db, $serializable, $criterio)

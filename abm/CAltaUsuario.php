@@ -1,5 +1,5 @@
 <?php 
-include ("CControladorUsuario.php");
+include_once("CControladorUsuario.php");
 
 class CAltaUsuario
 {

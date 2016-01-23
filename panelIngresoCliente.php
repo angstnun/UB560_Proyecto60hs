@@ -60,7 +60,7 @@
 	
 	<div class="content clearfix">
 		
-		<form name="ingresar" action="#" method="post" enctype="multipart/form-data">
+		<form id='formularioIngresoCliente' name="ingresar" action="#" method="post" enctype="multipart/form-data">
 		
 			<h1>INGRESO CLIENTES</h1>		
 			

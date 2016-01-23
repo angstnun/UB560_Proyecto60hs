@@ -1,5 +1,5 @@
-<?php
-include("CControladorSerializable.php");
+	<?php
+include_once("CControladorSerializable.php");
 
 class CVistaTabla
 {
@@ -39,21 +39,21 @@ class CVistaTabla
         return $str;
 	}
 
-	public function Show($tabla, $args = "")
+	public function Show($tabla, $args = "", $select = "")
 	{
 		$stringRetorno = null;
 		$ctrlSer = new CControladorSerializable("sistemaub");
 		$this->ComprobarFiltros();
-		echo "SELECT * FROM " . $tabla . " " . $this->filtro . " " . $this->orden . " " . $this->campo . " " . $this->forma . " " . $args . ";";
-		$resultado = $ctrlSer->ConsultaPersonalizada("SELECT * FROM " . $tabla . " " . $args . $this->filtro . " " . $this->orden . " " . $this->campo . " " . $this->forma . ";");
+		$resultado = $ctrlSer->ConsultaPersonalizada("SELECT * FROM " . $tabla . " " . $args . $this->filtro . " " . $this->orden . " " . $this->campo . " " . $this->forma . " " . $select . ";");
 		$stringRetorno = $this->GenerarCabeceraTabla($resultado->fetch_array(MYSQLI_ASSOC));
         while ($row = $resultado->fetch_array(MYSQLI_ASSOC))
         {
-          foreach($row as $val)
-          {
-          	$stringRetorno .= "<td>" . $val . "</td>";
-          }
-          $stringRetorno .= "</tr>";
+			$stringRetorno .= "<tr>";
+			foreach($row as $val)
+			{
+				$stringRetorno .= "<td>" . $val . "</td>";
+			}
+			$stringRetorno .= "</tr>";
         }
         $stringRetorno .= "</tbody>" . "</table>";
         return $stringRetorno;

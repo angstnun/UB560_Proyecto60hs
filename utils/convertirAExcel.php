@@ -1,4 +1,7 @@
 <?php
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment;filename="01simple.xlsx"');
+header('Cache-Control: max-age=0');
 /**
  * PHPExcel
  *
@@ -39,9 +42,8 @@ session_start();
 $tmpfile = time().'.html';
 file_put_contents($tmpfile, $_SESSION["tablaOperaciones"]);
 $reader = new PHPExcel_Reader_HTML; 
-$content = $reader->load($tmpfile); 
+$content = $reader->load($tmpfile);
 $objWriter = PHPExcel_IOFactory::createWriter($content, 'Excel2007');
-$objWriter->save(str_replace('.php', '.xlsx', __FILE__));
+$objWriter->save('php://output'); 
 unlink($tmpfile);
-
 ?>

@@ -1,7 +1,7 @@
 <?php 
-include ("conexion.php");
-include ("CCriterioBusquedaTexto.php");
-include ("CCriterioBusqueda.php");
+include_once("conexion.php");
+include_once("CCriterioBusquedaTexto.php");
+include_once("CCriterioBusqueda.php");
 
 $orden = "";
 $campo = "";

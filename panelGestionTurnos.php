@@ -109,10 +109,6 @@
 <script src="js/jquery-1.7.2.min.js"></script> 
 <script src="js/bootstrap.js"></script>
 <script src="js/base.js"></script>
-<script>
-$("#botonExcel").click(function() {
-    window.location.replace("http://stackoverflow.com");
-});
-</script>
+<script src="js/panelJefe.js"></script>
 </body>
 </html>

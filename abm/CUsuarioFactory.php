@@ -1,5 +1,5 @@
 <?php
-include ("CUsuario.php");
+include_once("CUsuario.php");
 
 class CUsuarioFactory
 {

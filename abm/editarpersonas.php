@@ -1,6 +1,6 @@
 <?php
 session_start();
-include ("conexion.php");
+include_once("conexion.php");
 if($_SESSION["id_usuario"] == null){
 header("Location: index.php");
 exit();

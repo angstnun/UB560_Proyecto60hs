@@ -25,6 +25,9 @@ class CCriterioBusquedaTexto
 	
 	public function GetTextoCondicion()
 	{
+		if (strpos($this->valor,'()')) {
+		    return $this->campo . " " . $this->operacion . " " . $this->valor;
+		}
 		return $this->campo . " " . $this->operacion . " " . "'" . $this->valor . "'";
 	}
 }

@@ -48,16 +48,16 @@
 </div>
 <div class="panelprincipal">
 	<?php
-      $botonSiguienteTurno = NULL;
       $vistaTabla = NULL;
       include("abm/CVistaTabla.php");
       $tabla =  new CVistaTabla();
-      $vistaTabla .= $tabla->Show("v_mostrarcolaturnos");
-      $vistaTabla .= "</tbody>" . "</table>";
+      $vistaTabla .= $tabla->Show("v_mostrarcolaturnos","","LIMIT 3");
       echo $vistaTabla;
       ?>
 </div>
 </div> <!-- /account-container -->
 <script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_tCNkkE1EEnncMBIKNfzDYiJCcUaKT4SlbdEdEZCIakD5G535G"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/panelEspera.js"></script>
 </body>
 </html>

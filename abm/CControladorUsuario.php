@@ -1,5 +1,5 @@
 <?php
-include("CControladorSerializable.php");
+include_once("CControladorSerializable.php");
 include_once("CUsuarioFactory.php");
 
 class CControladorUsuario extends CControladorSerializable

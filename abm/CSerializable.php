@@ -1,12 +1,12 @@
 <?php
-include("CCriterioBusqueda.php");
-include("CCriterioBusquedaTexto.php");
+include_once("CCriterioBusqueda.php");
+include_once("CCriterioBusquedaTexto.php");
 
 class CSerializable
 {
-	private $tabla = "";
-	private $columnas = "";
-	private $id = -1;
+	protected $tabla = "";
+	protected $columnas = "";
+	protected $id = -1;
 
 	public function __construct($tabla, $columnas)
 	{

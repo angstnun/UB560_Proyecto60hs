@@ -1,5 +1,5 @@
 <?php
-include("CSerializable.php");
+include_once("CSerializable.php");
 
 class CUsuario extends CSerializable
 {

@@ -72,14 +72,7 @@ function AgregarACola()
         data:dataString,
         url:'abm/nuevoTurno.php',
         success:function(data) {
-          if(data)
-          {
-            alert("Por favor espere a ser atendido.");
-          }
-          else
-          {
-            alert("Hubo un error al dar de alta su turno.");
-          }
+            alert(data);
         },
         error: function (xmlHttpRequest, textStatus, errorThrown) {
              alert(errorThrown);

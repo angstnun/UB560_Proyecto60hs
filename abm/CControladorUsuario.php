@@ -5,7 +5,7 @@ include_once("CUsuarioFactory.php");
 class CControladorUsuario extends CControladorSerializable
 {
 
-	public function __construct($db)
+	public function __construct($db, $pass = "")
 	{
 		parent::__construct($db);
 	}

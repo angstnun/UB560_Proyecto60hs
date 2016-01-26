@@ -2,6 +2,22 @@
 Bootstrap Admin Template by EGrappler.com
 ------------------------------------------------------------------*/
 
+#botonera
+{
+	width: 100%;
+}
+
+#botonSiguienteTurno
+{
+	width: 100%;
+	font-size: 0%:
+}
+
+#botonSiguienteTurno:hover
+{
+	background: #00BA8B;
+	color: white;
+}
 
 
 /*------------------------------------------------------------------

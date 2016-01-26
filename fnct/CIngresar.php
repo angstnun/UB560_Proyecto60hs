@@ -13,7 +13,7 @@ class CIngresar
 		$usrCTRL = new CControladorUsuario("sistemaub");
 		if (!$usrCTRL->Login($user, $pass)) //Revisa si se devolvio el usuario indicado por el usuario.
 		{
-			header("Location: ../error.php");
+			header("Location: ../error.php?error=passErr");
 		}
 		else
 		{

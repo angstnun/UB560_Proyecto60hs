@@ -4,7 +4,7 @@ include_once("CConexionABM.php");
 class CControladorSerializable
 {
 
-	private $db = NULL;
+	protected $db = NULL;
 
 	function __construct($db)
 	{

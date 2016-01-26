@@ -1,9 +1,24 @@
 /*------------------------------------------------------------------
 Bootstrap Admin Template by EGrappler.com
 ------------------------------------------------------------------*/
+#panelError
+{
+	width: 40%;
+	height: 65%;
+}
 
+.contenedor-imagen img
+{
+	display: block;
+	margin: auto;
+}
 
-
+.contenedor-descripcion
+{
+	width: 100%;
+	text-align: center;
+	font-size: 200%
+}
 
 /** Base Body Styles **/
 body{ background: url(../../img/body-bg.png); color:#838383; font: 13px/1.7em 'Open Sans';}

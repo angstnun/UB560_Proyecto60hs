@@ -1,8 +1,43 @@
 /*------------------------------------------------------------------
 Bootstrap Admin Template by EGrappler.com
 ------------------------------------------------------------------*/
+.panelhora>#panelTurnoActual
+{
+  height: 50%;
+  margin-top: 5%;
+}
 
+.panelhora>#panelTurnoActual>table
+{
+  font-size: 80%;
+}
 
+.panelhora>#panelTurnoActual>table>tbody>tr>td
+{
+  background: #00BA8B;
+  color: white;
+}
+
+.panelhora>#panelTurnoActual>table>tbody>tr>td:hover
+{
+  background: #00BA8B;
+  color: white;
+}
+
+.panelhora>#TT_tCNkkE1EEnncMBIKNfzDYiJCcUaKT4SlbdEdEZCIakD5G535G
+{
+  margin: auto;
+}
+
+.panelinterno1
+{
+  margin-top: 1%;
+}
+
+.panelprincipal
+{
+  margin-top: 3%;
+}
 
 .contenedor{
 width:95%;

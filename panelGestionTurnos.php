@@ -81,7 +81,9 @@
     <?php 
     if($usuario->GetPerfilId() == 2)
     {
+      echo "<div id='botonera'>";
       echo "<input value='Siguiente turno' type='button' id='botonSiguienteTurno'>";
+      echo "</div>";
     }
     ?>
 		<!-- /widget-content --> 
@@ -110,5 +112,6 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/base.js"></script>
 <script src="js/panelJefe.js"></script>
+<script src="js/panelAsesor.js"></script>
 </body>
 </html>

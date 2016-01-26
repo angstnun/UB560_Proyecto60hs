@@ -1,4 +1,7 @@
 ﻿<!DOCTYPE html>
+<?php
+include("abm/CVistaTabla.php");
+?>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -42,16 +45,23 @@
 </div>
 </div>
 <div class="panelhora">
-<div id="TT_tCNkkE1EEnncMBIKNfzDYiJCcUaKT4SlbdEdEZCIakD5G535G">El tiempo por Tutiempo.net</div>
+	<div id="TT_tCNkkE1EEnncMBIKNfzDYiJCcUaKT4SlbdEdEZCIakD5G535G">El tiempo por Tutiempo.net</div>
+	<div id='panelTurnoActual'>
+		<?php
+		$vistaTabla = NULL;
+		$tabla = new CVistaTabla();
+		$vistaTabla = $tabla->Show("v_mostrarturnollamado");
+		echo $vistaTabla;
+		?>
+	</div>
 </div> 
 <div class="panelfin">
 </div>
 <div class="panelprincipal">
 	<?php
       $vistaTabla = NULL;
-      include("abm/CVistaTabla.php");
       $tabla =  new CVistaTabla();
-      $vistaTabla .= $tabla->Show("v_mostrarcolaturnos","","LIMIT 3");
+      $vistaTabla = $tabla->Show("v_mostrarcolaturnos","","ORDER BY Turno ASC LIMIT 3");
       echo $vistaTabla;
       ?>
 </div>

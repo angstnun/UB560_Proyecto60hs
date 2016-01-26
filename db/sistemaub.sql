@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2016 at 11:55 PM
+-- Generation Time: Jan 26, 2016 at 11:19 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `turno` (
   `emailCliente` varchar(254) COLLATE latin1_spanish_ci NOT NULL,
   `horaIngreso` datetime NOT NULL,
   `horaAtencion` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `turno`
@@ -65,8 +65,12 @@ INSERT INTO `turno` (`turno_id`, `usuario_id`, `nombrePilaCliente`, `emailClient
 (2, 13, 'Mocos McMocos', 'mocos@mocos.com', '2015-11-21 16:17:58', '2015-11-21 16:22:47'),
 (3, 13, 'Steve Wozniak', 'sWozniak@apple.com', '2015-11-21 16:17:58', '2015-11-21 16:22:47'),
 (4, 13, 'Wol O. lo', 'wololo@aoe2.com', '2015-11-21 16:17:58', '2015-11-21 16:22:47'),
-(5, NULL, 'Francisco Pizarro', 'fpizarro@robomanoarmada.com.es', '2015-11-21 16:17:58', NULL),
-(6, NULL, 'Salty Bastard', 'ipod3g@apple.com', '2015-11-21 16:17:58', NULL);
+(5, 16, 'Francisco Pizarro', 'fpizarro@robomanoarmada.com.es', '2015-11-21 16:17:58', '2016-01-25 15:43:35'),
+(6, 16, 'Salty Bastard', 'ipod3g@apple.com', '2015-11-21 16:17:58', '2016-01-25 15:45:45'),
+(13, 16, 'asdasd', 'asdasdasd', '2016-01-22 00:34:31', '2016-01-25 19:06:10'),
+(14, NULL, 'asdasd', 'asdasdasd', '2016-01-22 00:38:36', NULL),
+(15, NULL, 'asdasd', 'asdasd', '2016-01-25 17:13:34', NULL),
+(16, NULL, 'angelo', 'ang@prueba.com', '2016-01-25 17:18:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -119,6 +123,15 @@ CREATE TABLE IF NOT EXISTS `v_mostrarcolaturnos` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `v_mostrarturnollamado`
+--
+CREATE TABLE IF NOT EXISTS `v_mostrarturnollamado` (
+`Turno` int(10) unsigned
+,`Asesor` varchar(64)
+);
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `v_mostrarturnos`
 --
 CREATE TABLE IF NOT EXISTS `v_mostrarturnos` (
@@ -159,6 +172,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `v_mostrarcolaturnos`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_mostrarcolaturnos` AS select `turno`.`turno_id` AS `Turno`,`turno`.`nombrePilaCliente` AS `Cliente` from `turno` where isnull(`turno`.`horaAtencion`) order by `turno`.`turno_id` desc;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_mostrarturnollamado`
+--
+DROP TABLE IF EXISTS `v_mostrarturnollamado`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_mostrarturnollamado` AS select `turno`.`turno_id` AS `Turno`,`usuario`.`nombrePila` AS `Asesor` from (`turno` join `usuario`) where ((`turno`.`usuario_id` = `usuario`.`usuario_id`) and (`turno`.`horaAtencion` is not null)) order by `Turno` desc limit 1;
 
 -- --------------------------------------------------------
 
@@ -213,7 +235,7 @@ MODIFY `perfil_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `turno`
 --
 ALTER TABLE `turno`
-MODIFY `turno_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `turno_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `usuario`
 --

@@ -2,8 +2,8 @@
 class CConexionSQL
 {
 	private $host = "localhost";
-	private $user = "root";
-	private $pass = "";
+	private $user = "u220754411_clt";
+	private $pass = "s4p0k4n1k4n";
 	private $conexion;
 	
 	public function __construct()

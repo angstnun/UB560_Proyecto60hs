@@ -42,7 +42,7 @@ class CVistaTabla
 	public function Show($tabla, $args = "", $select = "")
 	{
 		$stringRetorno = null;
-		$ctrlSer = new CControladorSerializable("sistemaub");
+		$ctrlSer = new CControladorSerializable("u220754411_sisub");
 		$this->ComprobarFiltros();
 		$resultado = $ctrlSer->ConsultaPersonalizada("SELECT * FROM " . $tabla . " " . $args . $this->filtro . " " . $this->orden . " " . $this->campo . " " . $this->forma . " " . $select . ";");
 		$stringRetorno = $this->GenerarCabeceraTabla($resultado->fetch_array(MYSQLI_ASSOC));

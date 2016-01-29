@@ -10,7 +10,7 @@ class CAltaUsuario
 
   public function Alta($perfilId, $usuario, $pass, $nombrePila)
   {
-    $ctrlUsr = new CControladorUsuario("sistemaub");
+    $ctrlUsr = new CControladorUsuario("u220754411_sisub");
     if(!$ctrlUsr->GetUsuario($usuario))
     {
       if(!is_null($ctrlUsr->NuevoUsuario($perfilId, $usuario, $pass, $nombrePila)))

@@ -10,7 +10,7 @@ class CIngresar
 
 	public function Ingresar($user, $pass)
 	{
-		$usrCTRL = new CControladorUsuario("sistemaub");
+		$usrCTRL = new CControladorUsuario("u220754411_sisub");
 		if (!$usrCTRL->Login($user, $pass)) //Revisa si se devolvio el usuario indicado por el usuario.
 		{
 			header("Location: ../error.php?error=passErr");
